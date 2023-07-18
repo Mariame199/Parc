@@ -39,7 +39,7 @@
                         </select>
                     </div>
                 </div class="form-group">
-                <input type="file">
+                <input type="file" wire:model = 'addPhoto'>
             </div>
               <div class="flex-grow-1 p-4">
                 <div>

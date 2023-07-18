@@ -154,6 +154,15 @@
               </li>
             </ul>
         </li>
+        <li class="nav-item">
+            <a href="{{route('gestionemployes')}}"
+            class="nav-link ">
+                <i class="nav-icon fas fa-users"></i>
+                <p>
+                Gestion des employes
+                </p>
+            </a>
+        </li>
 
         <li class="nav-item ">
             <a href="#" class="nav-link ">
@@ -179,14 +188,7 @@
                     <p>Voitures</p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-exchange-alt"></i>
-                        <p>
-                        Gestion des employes
-                        </p>
-                    </a>
-                </li>
+
             </li>
             @endcan
         </ul>
@@ -275,7 +277,7 @@
                 <a href="#" class="d-flex align-items-center"><i class="fa fa-lock pr-2"></i><b>Mot de passe</b></a>
             </li>
             <li class="list-group-item">
-                <a href="#" class="d-flex align-items-center"><i class="fa fa-user pr-2"></i><b>Mon profil</b></a>
+
             </li>
             </ul>
             <a class="btn btn-primary btn-block" href="{{ route('logout') }}"

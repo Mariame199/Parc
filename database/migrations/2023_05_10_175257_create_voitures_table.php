@@ -14,13 +14,11 @@ return new class extends Migration
         Schema::create('voitures', function (Blueprint $table) {
             $table->id();
             $table->string('marque');
-            $table->string('couleur');
             $table->string('matricule');
-            $table->string('description');
             $table->string('imageUrl');
             $table->boolean("estDisponible")->default(1);
             //  $table->foreignId("model_voiture_id")->constrained();
-            $table->foreignId("type_voiture_id")->constrained();
+            //$table->foreignId("type_voiture_id")->constrained();
             $table->timestamps();
         });
         Schema::enableForeignKeyConstraints();
@@ -32,7 +30,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('voitures',function(Blueprint $table){
-            $table->dropForeign([ "type_voiture_id"]);
+            //$table->dropForeign([ "type_voiture_id"]);
         Schema::dropIfExists('voitures');
     });
         Schema::dropIfExists('voitures');

@@ -1,15 +1,15 @@
 <div wire:ignore.self>
 
     @if($currentPage == PAGECREATEFORM)
-         @include("livewire.utilisateurs.create")
+         @include("livewire.employes.create")
     @endif
 
     @if($currentPage == PAGEEDITFORM)
-        @include("livewire.utilisateurs.edit")
+        @include("livewire.employes.edit")
     @endif
 
     @if($currentPage == PAGELIST)
-        @include("livewire.utilisateurs.list")
+        @include("livewire.employes.list")
     @endif
 
 </div>
@@ -42,9 +42,8 @@
         }).then((result) => {
         if (result.isConfirmed) {
             if(event.detail.message.data){
-                @this.deleteUser(event.detail.message.data.user_id)
+                @this.deleteClient(event.detail.message.data.client_id)
             }
-
 
         }
         })

@@ -14,7 +14,7 @@ use Livewire\WithFileUploads;
 
 class VoitureCmp extends Component
 {
-    use withPagination;
+    use withPagination, WithFileUploads;
 
     protected $paginationTheme = "bootstrap";
 
@@ -23,14 +23,14 @@ class VoitureCmp extends Component
     public $filtreType = "", $filtreEtat = "";
     public $addVoiture = [];
     public $editVoiture = [];
-    public $proprietesVoitures = null;
+    public $addPhoto = null;
+
 
 
     protected function rules () {
         return [
             'editVoiture.marque' => ["required", Rule::unique("voitures", "Marque")->ignore($this->editVoiture["id"])],
-            'editArticle.matricule' => ["required", Rule::unique("voitures", "matricule")->ignore($this->editVoiture["id"])],
-            'editArticle.type_voiture_id' => 'required|exists:App\Models\TypeVoiture,id',
+
 
         ];
     }
@@ -54,7 +54,7 @@ class VoitureCmp extends Component
         }
 
         if($this->filtreType != ""){
-            $voitureQuery->where("type_article_id", $this->filtreType);
+            $voitureQuery->where($this->filtreType);
         }
 
         if($this->filtreEtat != ""){
@@ -84,17 +84,34 @@ public function updated($property){
 }
 
 
-
-
-
-
-
-
-
     public function ajoutVoiture(){
-       // dump($this->addVoiture);
+
+$validateArr = [
+    "addVoiture.marque" => "string|min:3|required",
+    "addVoiture.matricule" =>"string|max:50|min:3|required",
+    "addPhoto" =>"image|max:10240"
+];
+
+$customErrMessages = [];
+
+$validatedData = $this->validate($validateArr , $customErrMessages) ;
+
+$imagePath = "";
+
+if($this->addPhoto != null){
+    $imagePath = $this->addPhoto->store('upload','public');
+}
 
 
+
+
+         $voiture = Voiture::create([
+            "marque" => $validatedData["addVoiture"]["marque"],
+            "matricule" => $validatedData["addVoiture"]["matricule"],
+            "imageUrl" => $imagePath
+         ]);
+
+         $this->dispatchBrowserEvent("showSuccessMessage", ["message"=>"Voiture ajoutée avec succès!"]);
 
 
 }

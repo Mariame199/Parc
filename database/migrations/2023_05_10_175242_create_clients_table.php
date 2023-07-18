@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string("Nom");
             $table->string('prenom')->nullable();
-            $table->string('email');
             $table->string("NumeroCni");
             $table->string("Adresse");
             $table->string("Telephone")->nullable();

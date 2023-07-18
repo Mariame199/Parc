@@ -33,15 +33,6 @@
 
 
 
-                    <div class="form-group">
-                        <label>Adresse e-mail</label>
-                        <input type="text" class="form-control @error('addClient.email') is-invalid @enderror"
-                            wire:model="addClient.email">
-                        @error('addClient.email')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
-                    </div>
-
 
                     <div class="form-group">
                         <label>Adresse</label>

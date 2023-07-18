@@ -35,7 +35,6 @@
                   <tr>
                   <th></th>
                   <th >Marque</th>
-
                   <th class="text-center">Etat</th>
                   <th  class="text-center">Ajouté</th>
                   <th  class="text-center">Action</th>

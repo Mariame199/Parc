@@ -22,7 +22,6 @@
             <table class="table table-head-fixed text-nowrap">
             <thead>
             <tr>
-            <th style="width: 5%;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ID</font></font></th>
             <th style="width: 25%;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Utilisateur</font></font></th>
             <th style="width: 20%;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Roles</font></font></th>
             <th style="width: 20%;"class="text-center"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Date de creation</font></font></th>
@@ -34,8 +33,7 @@
 
 
             <tr>
-            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{ $user->id}}</font></font></td>
-            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{ $user->name}}</font></font></td>
+            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{ $user->prenom }} {{ $user->nom }}</font></font></td>
             <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
                 @foreach ($user->roles as $role)
                 {{$role->nom}}
@@ -45,7 +43,7 @@
             <td class="text-center"><span class="tag tag-success"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{ $user->created_at->diffForHumans() }}</font></font></span></td>
             <td class="text-center">
                   <button class="btn btn-link" wire:click="goToEditUser({{$user->id}})"> <i class="far fa-edit"></i> </button>
-                  <button class="btn btn-link" wire:click="confirmDelete('{{ $user->name }}', {{$user->id}})"> <i class="far fa-trash-alt"></i> </button>
+                  <button class="btn btn-link" wire:click="confirmDelete('{{ $user->prenom }} {{ $user->nom }}', {{$user->id}})"> <i class="far fa-trash-alt"></i> </button>
                 </td>
               </tr>
               @endforeach
@@ -53,7 +51,11 @@
           </table>
         </div>
         <!-- /.card-body -->
-
+        <div class="card-footer">
+            <div class="float-right">
+                {{ $users->links() }}
+            </div>
+          </div>
 
       </div>
       <!-- /.card -->

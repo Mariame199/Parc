@@ -61,7 +61,7 @@ class clients extends Component
         return [
             'addClient.nom' => 'required',
             'addClient.prenom' => 'required',
-
+            'addClient.adresse' => 'required',
             'addClient.telephone' => 'required|unique:Clients,telephone',
             'addClient.numeroCni' => 'required',
 

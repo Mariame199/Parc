@@ -9,9 +9,14 @@ class Voiture extends Model
 {
     use HasFactory;
 
+    public $fillable = [
+        "marque" , "matricule" ,"imageUrl",
+
+    ];
+
     public function type(){
 
-       return $this->belongsToMany(TypeVoiture::class, "type_voitures_id","id");
+      // return $this->belongsToMany(TypeVoiture::class, "type_voitures_id","id");
 
             }
             public function tarifs(){

@@ -20,9 +20,6 @@ class VoitureFactory extends Factory
         return [
             "marque"=> $this->faker->realText,
             "matricule"=> $this->faker->text,
-            "couleur"=> $this->faker->realText,
-            "Description"=> $this->faker->paragraph,
-            "type_voiture_id"=> rand(1,4),
             "estDisponible" => rand(0, 1),
             // "model_voiture_id"=> rand(1,10),
             "imageUrl" => "images/imageplaceholder.png",
